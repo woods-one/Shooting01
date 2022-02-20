@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの動きの処理
+/// </summary>
 public class PlayerCotroller : MonoBehaviour
 {
 
@@ -15,7 +18,9 @@ public class PlayerCotroller : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// 矢印キーでプレイヤーの上下移動を制御するメソッド
+    /// </summary>
     void MovePlayer()
     {
         Vector3 playerPos = transform.position;
