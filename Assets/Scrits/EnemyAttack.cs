@@ -10,10 +10,30 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField]
     private GameObject enemyBullet;
 
+    [SerializeField]
+    private float intervalTime;
+    [SerializeField]
+    private float bulletSpeed;
+
+    private Vector3 enemyDirection;
+
+    [SerializeField]
+    private GameObject enemyObject;
+
+    private GameObject playerObject;
+
     void Start()
     {
+
+        playerObject = GameObject.Find("Player");
         StartCoroutine("EnemyAtacckInterval");
-        GameObject obj = Instantiate(enemyBullet, Vector3.zero, Quaternion.identity);
+        
+    }
+
+    void FixedUpdate()
+    {
+        enemyDirection = (playerObject.transform.position - enemyObject.transform.position);
+        enemyObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, enemyDirection);
     }
 
     /// <summary>
@@ -22,8 +42,10 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator EnemyAtacckInterval()
     {
         while (true)
-        {
-            yield return new WaitForSeconds(2);
+        { 
+            yield return new WaitForSeconds(intervalTime);
+            var shot = Instantiate(enemyBullet, transform.position, Quaternion.identity);
+            shot.GetComponent<Rigidbody2D>().velocity = transform.up.normalized * bulletSpeed;
         }
     }
 }
