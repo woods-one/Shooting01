@@ -7,14 +7,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerBulletDestroy : MonoBehaviour
 {
-    
-    EnemyDestroy enemyDestroy;
-
-    private void Start()
-    {
-        enemyDestroy = GetComponent<EnemyDestroy>();
-    }
-
     /// <summary>
     /// 衝突時処理
     /// </summary>
@@ -23,7 +15,6 @@ public class PlayerBulletDestroy : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
-            
         }
         if (other.gameObject.CompareTag("Enemy"))
         {

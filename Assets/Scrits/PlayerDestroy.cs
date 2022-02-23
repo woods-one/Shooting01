@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class PlayerDestroy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void DestroyPlayerObject()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(this.gameObject);
     }
 }
