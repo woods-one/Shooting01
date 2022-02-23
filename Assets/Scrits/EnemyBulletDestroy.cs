@@ -19,6 +19,8 @@ public class EnemyBulletDestroy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
+            other.gameObject.GetComponent<PlayerDestroy>().DestroyPlayerObject();
+            Time.timeScale = 0;
         }
     }
 }

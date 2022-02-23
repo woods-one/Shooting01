@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーオブジェクトの消去処理
+/// </summary>
 public class PlayerDestroy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 敵の弾が着弾時消去
+    /// </summary>
+    public void DestroyPlayerObject()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(this.gameObject);
     }
 }
