@@ -44,7 +44,7 @@ public class EnemyAttack : MonoBehaviour
         { 
             yield return new WaitForSeconds(intervalTime);
             var enemyShot = Instantiate(enemyBullet, transform.position, Quaternion.identity);
-            enemyShot.GetComponent<Rigidbody2D>().velocity = transform.up.normalized * bulletSpeed;
+            enemyShot.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
         }
     }
 }

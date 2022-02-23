@@ -32,8 +32,7 @@ public class PlayerShot : MonoBehaviour
             if (Input.GetKey(KeyCode.Z))
             {
                 var playerShot = Instantiate(playerBullet, transform.position, Quaternion.identity);
-                playerShot.GetComponent<Rigidbody2D>().velocity = transform.up.normalized * bulletSpeed;
-                Debug.Log("hoge");
+                playerShot.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
             }
         }
     }
