@@ -11,17 +11,30 @@ public class PlayerShot : MonoBehaviour
     private float bulletSpeed;
     [SerializeField]
     private GameObject playerBullet;
+
+    [SerializeField]
+    private float intervalTime;
+
+
     void Start()
     {
-
+        StartCoroutine("PlayerShotInterval");
     }
 
-    void FixedUpdate()
+    /// <summary>
+    /// プレイヤーの弾を打つ間隔
+    /// </summary>
+    IEnumerator PlayerShotInterval()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        while (true)
         {
-            var playerShot = Instantiate(playerBullet, transform.position, Quaternion.identity);
-            playerShot.GetComponent<Rigidbody2D>().velocity = transform.up.normalized * bulletSpeed;
+            yield return new WaitForSeconds(intervalTime);
+            if (Input.GetKey(KeyCode.Z))
+            {
+                var playerShot = Instantiate(playerBullet, transform.position, Quaternion.identity);
+                playerShot.GetComponent<Rigidbody2D>().velocity = transform.up.normalized * bulletSpeed;
+                Debug.Log("hoge");
+            }
         }
     }
 }

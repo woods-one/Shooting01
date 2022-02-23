@@ -15,12 +15,10 @@ public class EnemyBulletDestroy : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
-            Debug.Log("Wall");
         }
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-            Debug.Log("Player");
         }
     }
 }
