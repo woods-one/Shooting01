@@ -26,8 +26,7 @@ public class EnemyAttack : MonoBehaviour
     {
 
         playerObject = GameObject.Find("Player");
-        StartCoroutine("EnemyAtacckInterval");
-        
+        StartCoroutine("EnemyShotInterval"); 
     }
 
     void FixedUpdate()
@@ -37,9 +36,9 @@ public class EnemyAttack : MonoBehaviour
     }
 
     /// <summary>
-    /// 弾の打つ間隔
+    /// 敵の弾を打つ間隔
     /// </summary>
-    IEnumerator EnemyAtacckInterval()
+    IEnumerator EnemyShotInterval()
     {
         while (true)
         { 
