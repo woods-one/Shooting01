@@ -10,11 +10,14 @@ public class PlayerCotroller : MonoBehaviour
     [SerializeField]
     private float playerSpeed;
 
-    private float playerSpeedRatio = 1;
+    [SerializeField]
+    private float playerSlowSpeed;
 
+    private float playerNowSpeed;
 
     void FixedUpdate()
     {
+        MoveSlowPlayer();
         MovePlayer();
     }
 
@@ -28,23 +31,38 @@ public class PlayerCotroller : MonoBehaviour
 
         if (Input.GetAxisRaw("Vertical") > 0)
         {
-            playerPos.y += playerSpeed * Time.deltaTime * playerSpeedRatio;
+            playerPos.y += playerNowSpeed * Time.deltaTime;
         }
         else if (Input.GetAxisRaw("Vertical") < 0)
         {
-            playerPos.y -= playerSpeed * Time.deltaTime * playerSpeedRatio;
+            playerPos.y -= playerNowSpeed * Time.deltaTime;
         }
 
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            playerPos.x += playerSpeed * Time.deltaTime * playerSpeedRatio;
+            playerPos.x += playerNowSpeed * Time.deltaTime;
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            playerPos.x -= playerSpeed * Time.deltaTime * playerSpeedRatio;
+            playerPos.x -= playerNowSpeed * Time.deltaTime;
         }
 
         transform.position = playerPos;
+    }
+
+    /// <summary>
+    /// 左シフトキーを押している時にプレイヤーのスピードを遅くするメソッド
+    /// </summary>
+    void MoveSlowPlayer()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerNowSpeed = playerSlowSpeed;
+        }
+        else
+        {
+            playerNowSpeed = playerSpeed;
+        }
     }
 
 }
