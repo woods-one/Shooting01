@@ -8,15 +8,14 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyBullet;
-
+    private float bulletSpeed;
     [SerializeField]
     private float intervalTime;
-    [SerializeField]
-    private float bulletSpeed;
 
     private Vector3 enemyDirection;
 
+    [SerializeField]
+    private GameObject enemyBullet;
     [SerializeField]
     private GameObject enemyObject;
 
