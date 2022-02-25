@@ -6,8 +6,12 @@ public class GamePause : MonoBehaviour
 {
     private bool pauseGame;
 
+    [SerializeField]
+    private GameObject gamePauseObeject;
+
     void Start()
     {
+        gamePauseObeject.SetActive(false);
         pauseGame = false;
     }
 
@@ -16,12 +20,15 @@ public class GamePause : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Escape) && !pauseGame)
         {
             Time.timeScale = 0;
+            gamePauseObeject.SetActive(true);
             pauseGame = true;
         }
         else if(Input.GetKeyUp(KeyCode.Escape) && pauseGame)
         {
-            pauseGame = false;
+
             Time.timeScale = 1;
+            gamePauseObeject.SetActive(false);
+            pauseGame = false;
         }
     }
 }
