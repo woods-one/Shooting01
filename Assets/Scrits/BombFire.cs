@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ボムの処理
+/// </summary>
 public class BombFire : MonoBehaviour
 {
     private bool isStandby;
@@ -16,6 +19,9 @@ public class BombFire : MonoBehaviour
         StartCoroutine("UseBomb");
     }
 
+    /// <summary>
+    /// ボムを使用した時のメソッド
+    /// </summary>
     IEnumerator UseBomb()
     {
         if (Input.GetKeyDown(KeyCode.X) && !isStandby)
