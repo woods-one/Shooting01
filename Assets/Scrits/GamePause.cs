@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ゲームのポーズ処理クラス
+/// </summary>
 public class GamePause : MonoBehaviour
 {
     private bool pauseGame;
