@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class GamePause : MonoBehaviour
 {
-    private bool pauseGame;
+    private bool isPauseGame;
 
     [SerializeField]
     private GameObject gamePauseObeject;
@@ -15,23 +15,28 @@ public class GamePause : MonoBehaviour
     void Start()
     {
         gamePauseObeject.SetActive(false);
-        pauseGame = false;
+        isPauseGame = false;
     }
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape) && !pauseGame)
+        ShowGamePause();
+    }
+
+    void ShowGamePause()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) && !isPauseGame)
         {
             Time.timeScale = 0;
             gamePauseObeject.SetActive(true);
-            pauseGame = true;
+            isPauseGame = true;
         }
-        else if(Input.GetKeyUp(KeyCode.Escape) && pauseGame)
+        else if (Input.GetKeyUp(KeyCode.Escape) && isPauseGame)
         {
 
             Time.timeScale = 1;
             gamePauseObeject.SetActive(false);
-            pauseGame = false;
+            isPauseGame = false;
         }
     }
 }
