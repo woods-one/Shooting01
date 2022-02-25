@@ -14,7 +14,7 @@ public class EnemyBulletDestroy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject); 
         }
         if (other.gameObject.CompareTag("Player"))
         {
