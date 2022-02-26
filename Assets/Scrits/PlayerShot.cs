@@ -13,7 +13,7 @@ public class PlayerShot : MonoBehaviour
     private GameObject playerBullet;
 
     [SerializeField]
-    private float intervalTime;
+    private float shotIntervalTime;
 
 
     void Start()
@@ -28,7 +28,7 @@ public class PlayerShot : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(intervalTime);
+            yield return new WaitForSeconds(shotIntervalTime);
             if (Input.GetKey(KeyCode.Z))
             {
                 var playerShot = Instantiate(playerBullet, transform.position, Quaternion.identity);
