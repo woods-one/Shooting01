@@ -9,6 +9,9 @@ public class BombFire : MonoBehaviour
 {
     private bool isStandby;
 
+    [SerializeField]
+    private float bombIntervalTime;
+
     void Start()
     {
         isStandby = false;
@@ -33,7 +36,7 @@ public class BombFire : MonoBehaviour
                 Destroy(bullet);
             }
             isStandby = true;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(bombIntervalTime);
             isStandby = false;
         }
     }
